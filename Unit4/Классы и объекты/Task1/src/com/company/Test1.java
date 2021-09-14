@@ -1,5 +1,5 @@
 package com.company;
-import javax.lang.model.type.NullType;
+
 import java.util.Scanner;
 
 public class Test1 {
@@ -10,9 +10,9 @@ public class Test1 {
 
     public static void input(){
         System.out.println(num1 + " " + num2);
-    }
+    } //вывод полей на экран
 
-    public static void changeNumbers(){
+    public static void changeNumbers(){                                   //изменение полей
         System.out.println("Введите значение первого числа: ");
         num1 = in.nextInt();
         System.out.println("Введите значение второго числа: ");
@@ -20,11 +20,11 @@ public class Test1 {
         System.out.println(num1 + " " + num2);
     }
 
-    public static void summa(){
+    public static void summa(){                                           //сумма полей
         System.out.println(num1 + num2);
     }
 
-    public static void max(){
+    public static void max(){                                            //нахождение наибольшего из полей
         if(num1 > num2){
             System.out.println(num1);
         } else if(num1 == num2){
