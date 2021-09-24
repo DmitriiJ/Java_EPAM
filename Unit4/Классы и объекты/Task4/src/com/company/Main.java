@@ -11,6 +11,7 @@ public class Main {
 
         boolean play = true;
 
+        //список из объектов класса
         ArrayList<Train> trains = new ArrayList<>();
             trains.add(new Train("Брест", 645, "19:21"));
             trains.add(new Train("Пинск", 686, "07:38"));
@@ -18,10 +19,12 @@ public class Main {
             trains.add(new Train("Пинск", 686, "05:37"));
             trains.add(new Train("Гомель", 790, "4:20"));
 
+            //в зависимости от выбора пользователя выполняем функции
         while (play) {
             menu();
             int n = in.nextInt();
             switch (n) {
+                //вывод информации о поезде по номеру, введённому пользователем
                 case 1:
                     System.out.println("Для получения информации о поезде введите его номер: ");
                     int num = in.nextInt();
@@ -35,6 +38,7 @@ public class Main {
                     }
                 break;
 
+                    //реализуем интерфейс compareTo, чтобы отсортировать поезда по номеру
                 case 2:
                     trains.sort(new Comparator<Train>() {
                         @Override
@@ -45,6 +49,7 @@ public class Main {
                             }
                     });
 
+                    //вывод отсортированных объектов
                     for (int i = 0; i < trains.toArray().length; i++) {
                         System.out.println(trains.get(i).getDestination() +
                             " " + trains.get(i).getNumber() +
@@ -52,11 +57,13 @@ public class Main {
                     }
                 break;
 
+                //реализуем интерфейс compareTo, чтобы отсортировать поезда по пункту назначения
             case 3:
                 trains.sort(new Comparator<Train>() {
                     @Override
                     public int compare(Train t1, Train t2) {
                         int result = t1.getDestination().compareTo(t2.getDestination());
+                        //если пункты назначения совпадают, то сортируем по времени
                         if (result == 0) {
                             return t1.getDepartureTime().compareTo(t2.getDepartureTime());
                         }
@@ -64,6 +71,7 @@ public class Main {
                     }
                 });
 
+                //вывод отсортированных объектов
                 for (int i = 0; i < trains.toArray().length; i++) {
                     System.out.println("Пункт назначения: " + trains.get(i).getDestination() + "\n" +
                             "Номер поезда: " + trains.get(i).getNumber() + "\n" +
@@ -71,6 +79,7 @@ public class Main {
                     System.out.println(" ");
                 }
                 break;
+                //выход из программы
             case 4:
                 play = false;
                 break;
@@ -79,6 +88,7 @@ public class Main {
 
     }
 
+    //вывод пунктов меню
     public static void menu(){
         System.out.println(" ");
         System.out.println("Выберите пункт меню: ");
