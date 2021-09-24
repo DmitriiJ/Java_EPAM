@@ -5,11 +5,14 @@ import java.util.Scanner;
 public class Counter {
     private static Scanner in = new Scanner(System.in);
 
+
+    //конструктор класса счётчик
     public Counter(){
 
         int count = 0;
         boolean isStart = true;
 
+        //в зависимости от выбора пользователя выбираем функцию
         while (isStart){
             menu();
             System.out.println("Выберите вариант: ");
@@ -26,9 +29,10 @@ public class Counter {
                     System.out.println("Введите вторую границу диапазона: ");
                     int b = in.nextInt();
 
+                    //проверка на то, если пользователь введёт диапазон из 1 числа
                     if(a == b){
                         System.out.println("Границы совпали!");
-                        return;
+                        break;
                     }
 
                     int[] range = new int[lengthOfRange(a, b)];
@@ -42,11 +46,13 @@ public class Counter {
 
     }
 
+    //находим размер массива(диапазона)
     public int lengthOfRange(int a, int b){
         int n = b - a;
         return n + 1;
     }
 
+    //функция счёта
     public void counting(int[] range, int a, int b, int count){
 
         int i = 0;
@@ -92,6 +98,7 @@ public class Counter {
         }
     }
 
+    //заполняем массив(диапазон)
     public void fillingArray(int [] range, int a, int b){
         int a1 = a;
         for(int i = 0; a1 <= b; i++){
@@ -101,6 +108,7 @@ public class Counter {
         }
     }
 
+    //заполняем диапазон значениями по умолчанию
     public void fillingRangeDefault(int[] range){
         for (int i = 0; i < 10; i++){
             range[i] = i;
@@ -108,6 +116,7 @@ public class Counter {
         }
     }
 
+    //функция счёта для диапазона по умолчанию
     public void countingDef(int[] rangeDef){
 
         int i = 0;
@@ -153,6 +162,7 @@ public class Counter {
         }
     }
 
+    //вывод меню на экран
     public void menu(){
         System.out.println("1. Проинициализировать счётчик значениями по умолчанию;");
         System.out.println("2. Проинициализировать счётчик своими значениями;");
