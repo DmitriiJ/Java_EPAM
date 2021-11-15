@@ -1,7 +1,6 @@
 package com.company;
 
 public class Train {
-    //private static Scanner in = new Scanner(System.in);
 
     private String destination;
     private int number;
