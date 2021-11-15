@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class Train {
-    private static Scanner in = new Scanner(System.in);
+    //private static Scanner in = new Scanner(System.in);
 
     private String destination;
     private int number;

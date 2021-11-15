@@ -13,6 +13,10 @@ public class Student {
         this.group = group;
         this.notes = notes;
         gettingNotes();
+
+        for (Student student : students){
+            student.bestStudents();
+        }
     }
 
     public int[] gettingNotes(){
