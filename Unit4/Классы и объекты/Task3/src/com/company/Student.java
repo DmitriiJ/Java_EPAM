@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
-
 public class Student {
 
     String name;
@@ -11,22 +9,17 @@ public class Student {
     public Student(String name, String group){
         this.name = name;
         this.group = group;
-        this.notes = notes;
         gettingNotes();
-
-        for (Student student : students){
-            student.bestStudents();
-        }
     }
-
+                                   //задаём рандомные оценки студентам(в диапозоне 8-10)
     public int[] gettingNotes(){
         notes = new int[5];
         for(int i = 0; i < notes.length; i++){
-            notes[i] = (int) (Math.random() * 11) - 3;
+            notes[i] = (int) (Math.random() * 3) + 8;
         }
         return notes;
     }
-
+                                   //производим выборку студентов, у которых оценки 9-10
     public void bestStudents(){
         boolean highNote = true;
         for(int i : notes){
@@ -36,19 +29,18 @@ public class Student {
             }
         }
         if(highNote){
-            System.out.printf(name + "\n" + group + "\n" + "Оценки:");
+            System.out.printf("\n\n" + name + "\n" + group + "\n" + "Оценки: ");
             for (int i : notes){
-                System.out.print(i);
+                System.out.print(i + ", ");
             }
         }
     }
+                                       //печатаем информацию о всех студентах
+    public void printStudents() {
 
-    public String getName(){ return name; }
-    public String getGroup(){ return group; }
-    public int[] getNotes() {
-        return Arrays.copyOf(notes, notes.length);
+        System.out.printf("\n\n" + name + "\n" + group + "\n" + "Оценки: ");
+        for (int n = 0; n < notes.length; n++) {
+            System.out.print(notes[n] + ", ");
+        }
     }
-
-    public void setName(String name) { this.name = name; }
-    public void setGroup(String group) { this.group = group; }
 }
